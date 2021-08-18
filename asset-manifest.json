@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/toros/static/css/main.66f31afc.chunk.css",
-    "main.js": "/toros/static/js/main.476d2ff8.chunk.js",
-    "main.js.map": "/toros/static/js/main.476d2ff8.chunk.js.map",
+    "main.js": "/toros/static/js/main.99dcc696.chunk.js",
+    "main.js.map": "/toros/static/js/main.99dcc696.chunk.js.map",
     "runtime-main.js": "/toros/static/js/runtime-main.53281985.js",
     "runtime-main.js.map": "/toros/static/js/runtime-main.53281985.js.map",
     "static/js/2.b8c42b2a.chunk.js": "/toros/static/js/2.b8c42b2a.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.53281985.js",
     "static/js/2.b8c42b2a.chunk.js",
     "static/css/main.66f31afc.chunk.css",
-    "static/js/main.476d2ff8.chunk.js"
+    "static/js/main.99dcc696.chunk.js"
   ]
 }
