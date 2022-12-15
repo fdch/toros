@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import logo from './logo.svg';
+import logo from '../images/logo.svg';
+import Landing from './Landing.js';
 import './App.css';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-	  {!data ? "Loading..." : data}
+	  {!data ? "Loading..." : <Landing/>}
         </p>
         
       </header>
