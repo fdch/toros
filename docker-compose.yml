@@ -1,0 +1,60 @@
+version: "3"
+
+services:
+  mysql:
+    container_name: database
+    image: mysql/mysql-server:5.7
+    env_file:
+      - database/.env
+    # Set max_allowed_packet to 256M
+    command: --max_allowed_packet=32505856
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/data:/var/lib/mysql
+    networks:
+      - toros-web
+
+  frontend:
+    build:
+      context: "./frontend"
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./frontend/src:/app/src:delegated
+      - ./frontend/public:/app/public:delegated
+    ports:
+      - 3000:3000
+    container_name: frontend
+    networks:
+      - toros-web
+  api:
+    container_name: api
+    image: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    command:
+      [
+        "uvicorn",
+        "toros_web_api.main:app",
+        "--port=20002",
+        "--host=0.0.0.0",
+        "--reload"
+      ]
+    environment:
+      COLUMNS: 164
+    tty: true
+    ports:
+      - "20002:20002"
+    env_file:
+      - ./api/config/.env
+    volumes:
+      - ./api/toros_web_api:/toros_web_api
+      - ./api/config/config.toml:/config/config.toml
+    networks:
+      - toros-web
+
+networks:
+  toros-web:
