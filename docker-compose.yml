@@ -2,38 +2,38 @@ version: "3"
 
 services:
   mysql:
-    container_name: database
+    container_name: toros_db
     image: mysql/mysql-server:5.7
     env_file:
-      - database/.env
+      - toros_db/.env
     # Set max_allowed_packet to 256M
     command: --max_allowed_packet=32505856
     ports:
       - "3306:3306"
     volumes:
-      - ./database/data:/var/lib/mysql
+      - ./toros_db/data:/var/lib/mysql
     networks:
       - toros-web
 
-  frontend:
+  toros_frontend:
     build:
-      context: "./frontend"
+      context: "./toros_frontend"
       dockerfile: Dockerfile
     environment:
       NODE_ENV: development
     volumes:
-      - ./frontend/src:/app/src:delegated
-      - ./frontend/public:/app/public:delegated
+      - ./toros_frontend/src:/app/src:delegated
+      - ./toros_frontend/public:/app/public:delegated
     ports:
       - 3000:3000
-    container_name: frontend
+    container_name: toros_frontend
     networks:
       - toros-web
-  api:
-    container_name: api
-    image: api
+  toros_api:
+    container_name: toros_api
+    image: toros_api
     build:
-      context: ./api
+      context: ./toros_api
       dockerfile: Dockerfile
     command:
       [
@@ -49,10 +49,10 @@ services:
     ports:
       - "20002:20002"
     env_file:
-      - ./api/config/.env
+      - ./toros_api/config/.env
     volumes:
-      - ./api/toros_web_api:/toros_web_api
-      - ./api/config/config.toml:/config/config.toml
+      - ./toros_api/toros_web_api:/toros_web_api
+      - ./toros_api/config/config.toml:/config/config.toml
     networks:
       - toros-web
 

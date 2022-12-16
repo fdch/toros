@@ -1,0 +1,4 @@
+[SQL]
+user = 'root'
+url = 'database'
+db_name = 'app'

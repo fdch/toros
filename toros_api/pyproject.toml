@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "api"
+version = "0.1.0"
+description = "API for toros web"
+authors = ["Fede Camara Halac <camarafede@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.70.1"
+pydantic = "^1.8.2"
+sqlmodel = "^0.0.5"
+SQLAlchemy = "^1.4.28"
+rich = "^10.16.1"
+uvicorn = "^0.16.0"
+python-dotenv = "^0.19.2"
+toml = "^0.10.2"
+PyMySQL = "^1.0.2"
+
+[tool.poetry.dev-dependencies]
+black = {version = "^21.12b0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
