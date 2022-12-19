@@ -1,0 +1,27 @@
+{
+    "bar": {
+       "name" : "Bariloche",
+       "countryRef": "arg"
+    },
+    "cba": {
+       "name" : "Cordoba",
+       "countryRef": "arg"
+    },
+    "nyc": {
+       "name" : "New York City",
+       "countryRef": "usa"
+    },
+    "col": {
+       "name": "Columbus",
+       "countryRef": "usa"
+    },
+    "ber": {
+       "name" : "Berlin",
+       "countryRef": "ger"
+    },
+    "net": {
+      "name" : "Online",
+      "countryRef": "net"
+    }
+}
+

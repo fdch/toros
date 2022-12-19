@@ -1,0 +1,18 @@
+{
+  "arg": {
+    "name" : "Argentina",
+    "acronym" :"ARG"
+  },
+  "usa": {
+    "name" : "United States",
+    "acronym" : "USA"
+  },
+  "ger": {
+    "name" : "Germany",
+    "acronym" : "DE"
+  },
+  "net": {
+    "name" : "World Wide Web",
+    "acronym" : "WWW"
+  }
+}

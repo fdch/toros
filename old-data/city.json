@@ -1,0 +1,20 @@
+{
+    "nqn": {
+       "name" : "Neuquen",
+       "acronym":"NQN"
+    },
+    "cba": {
+       "name" : "Cordoba",
+       "acronym": "CBA"
+
+    },
+    "ny": {
+       "name" : "New York",
+       "acronym":"NY"
+    },
+    "oh": {
+       "name": "Ohio",
+       "acronym":"OH"
+    }
+}
+
