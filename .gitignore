@@ -3,3 +3,4 @@ package-lock.json
 data/
 toros_db/
 import/
+__pycache__/
