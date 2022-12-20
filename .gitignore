@@ -4,3 +4,4 @@ data/
 toros_db/
 import/
 __pycache__/
+*.swp
