@@ -8,7 +8,7 @@ import pickle
 from status import Status
 #from logger import logger
 
-class Server(object):
+class DBClient(object):
   def __init__(self):
     # the name of the database
     self.tables_path = _config.tables_path
@@ -23,14 +23,16 @@ class Server(object):
     self.port = _config.port
     self.addr = None # the address of the client
     # Start the socket server
-    self.listen()
-    # keep the server alive
-    self.keep_alive = True
-    self.packets = 0
     self.status = Status()
-    self.conn = None
-    # Start the connections
-    self.connect_loop()
+   
+    self.host = _config.host
+    self.port = _config.port
+    self.chunk_count = 0
+    self.data_chunks = bytearray()
+    self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    self.status = Status()
+  
+
 
   def to_pickle(self, data):
     return pickle.dumps(data, protocol=pickle.HIGHEST_PROTOCOL)
@@ -101,11 +103,7 @@ class Server(object):
 
       self.conn.close()
 
-  def __setattr__(self, name, value):
-    """ Hijack setattr to return ourselves as a dictionary """
-    if value is not None:
-      self.__dict__[name] = value
- 
+
   def load_db(self):
     #print("loading db", self.tables_path)
     if not self.tables_path:
@@ -118,27 +116,81 @@ class Server(object):
     for table_name, table_path in self.tables.__dict__.items():
       print(f"Loading table {table_name}")
       setattr(self, table_name, json_read(table_path.path, object_hook = self.hook))
+  def handle_response(self, response):
+    data = pickle.loads(response)
+    print("DATA",data)
+   # if isinstance(data, Status):
+   #   # status object
+   #   print("STATUS:", self.status.get_status_name())
+   #   self.status = data
 
-  def listen(self):
-    """ Start the socket server """
-    self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    self.sock.bind((self.host, self.port))
-    self.sock.listen()
+   #   if self.status.check(-2):
+   #     print(f"Querying '{x}' returned empty")
+   #   elif self.status.check(-1): # self.status.check(-1) == "INITIAL"
+   #     print("Initial state")
+   #   else:
+   #     print("Wrong status")
+   #     return 1
+
+   # else: # incoming data ...
+   #   print("Incoming data ...")
+   #   if self.status.check(1):
+   #     self.chunk_count += 1
+   #     print(f"... appending chunk #{self.chunk_count}...: {data}")
+   #     self.data_chunks += data
+   #   elif self.status.check(0):
+   #     print(f"... finished {self.chunk_count} chunks.")
+   #     self.chunk_count = 0
+   #     data = self.data_chunks
+   #     self.data_chunks = bytearray()
+   #     #data = json_from_namespace(data)
+   #     print("Received data:", data)
    
-  def __json__(self, indent=4):
-    """ Return a JSON representation of the instance's scope as a string """
+  def disconnect(self):
+    """ Disconnect from the socket server"""
+    print("Disconnecting")
+    self.sock.close()
 
-    def __filter__(o):
-      return { 
-        k : v 
-        for k,v in o.__dict__.items() 
-      }
+  def connect(self):
+    """ Connect to the socket server """
+    print("Connecting to host")
+    self.sock.connect((self.host, self.port))
 
-    return json.dumps(
-      self,
-      default   = __filter__,
-      sort_keys = False,
-      indent    = indent
-    )
- 
+  def receive(self, callback):
+    """ Receive data from socket"""
+    print("Receiving data")
+    response = b''
+    data = True
+    while data:
+      data = self.sock.recv(1024)
+      response += data
+    callback(response)
+    
+  def send(self, command, callback):
+    """ Send data to socket passing a callback"""
+
+    print("Sending", command)
+    self.sock.sendall(command)
+    self.receive(callback)
+   
+  def query(self):
+    """ Query the database """
+    self.connect()
+
+    print("Type QUIT or EXIT to exit terminal")
+    while True:
+      x = input("Query the database: ")
+      if x == 'quit()' or x == 'QUIT' or x == 'EXIT':
+        break 
+    
+      # send query
+      #self.send(x.encode('utf-8'), self.handle_response)
+      self.sock.sendall(x.encode('utf-8'))
+      resp = b''
+      resp += self.sock.recv(1024)
+      
+      print(resp)
+    
+    self.disconnect()
+
+
