@@ -11,35 +11,34 @@
     {
         "date": "2020-03-18T00:00:00",
         "category": "Live Performance",
-        "employer": null,
+        "employer": "Kriptonnia - Sesiones Remotas",
         "title": "Sirenas",
         "location": "Cordoba, ARG",
         "institution": "Wexner Center for the Arts",
-        "video": [
-            {
-                "hostname": "youtube",
-                "id": "zP6dOVm6qqk"
-            }
+        "video": [ 
+          "https://www.youtube.com/watch?v=zP6dOVm6qqk"
         ]
     },
     {
         "date": "2020-01-10T00:00:00",
         "category": "Software Release",
-        "employer": null,
+        "employer": "ACCAD",
         "title": "Thornblower",
         "location": "Columbus, OH",
-        "institution": "Wexner Center for the Arts",
+        "institution": "The Ohio State University",
         "url": "https://github.com/fdch/thornblower"
     },
     {
         "date": "2020-05-12T00:00:00",
         "category": "Software Release",
-        "employer": null,
+        "employer": "ACCAD",
         "title": "Quacktrip Plugin",
         "location": "Cordoba, ARG",
         "institution": "Wexner Center for the Arts",
         "url": "https://github.com/fdch/quack4",
-        "img": "https://github.com/fdch/Quack4/raw/master/Quack4.png"
+        "images": [
+          "Quack4.png"
+        ]
     },
     {
         "date": "2020-11-08T00:00:00",
@@ -49,11 +48,8 @@
         "institution": "Advanced Computing Center for the Arts and Design",
         "location": "New York City, NY",
         "url": "https://accad.osu.edu/news/sonic-arts-ensemble-performance-nownet-arts-conference",
-        "video": [
-            {
-                "hostname": "vimeo",
-                "id": "520122552"
-            }
+        "videos": [
+          "https://vimeo.com/520122552"
         ]
     },
     {
@@ -64,12 +60,11 @@
         "location": "New York City, NY",
         "institution": "Advanced Computing Center for the Arts and Design",
         "url": "https://accad.osu.edu/news/sonic-arts-ensemble-performance-nownet-arts-conference",
-        "img": "https://accad.osu.edu/sites/default/files/styles/news_and_events_image/public/2020-10/news-sonic-arts-ensemble-performance-at-nownet-arts.jpg?h=252f27fa&itok=EyAoYuby",
-        "video": [
-            {
-                "hostname": "vimeo",
-                "id": "520126006"
-            }
+        "images": [
+          "nownet.jpg" 
+        ],
+        "videos": [
+          "https://vimeo.com/520126006"
         ]
     },
     {
@@ -81,11 +76,8 @@
         "broadcast": 0,
         "institution": "Wexner Center for the Arts",
         "url": "https://accad.osu.edu/news/sonic-arts-ensemble-performs-multiverse",
-        "video": [
-            {
-                "hostname": "vimeo",
-                "id": "496634040"
-            }
+        "videos": [
+          "https://vimeo.com/496634040"
         ]
     },
     {
@@ -107,11 +99,8 @@
         "broadcast": 1,
         "institution": "Wexner Center for the Arts",
         "url": "https://accad.osu.edu/news/sonic-arts-ensemble-performance-earth-day-art-model",
-        "video": [
-            {
-                "hostname": "deck10",
-                "id": "https://edam2021.deck10.media/stages/main#event-b1yjvmmjh"
-            }
+        "videos": [
+          "https://edam2021.deck10.media/stages/main#event-b1yjvmmjh"
         ]
     },
     {
@@ -123,11 +112,8 @@
         "broadcast": 1,
         "institution": "Wexner Center for the Arts",
         "url": "https://accad.osu.edu/news/sonic-arts-ensemble-performance-earth-day-art-model",
-        "video": [
-            {
-                "hostname": "CCRMA",
-                "id": "https://ccrma.stanford.edu/live/twelve"
-            }
+        "videos": [
+          "https://ccrma.stanford.edu/live/twelve"
         ]
     },
     {
@@ -136,8 +122,7 @@
         "employer": "Sonic Arts Ensemble",
         "title": "Sonic Arts Ensemble - Klingt Gut Presentation",
         "location": "Online",
-        "institution": null,
-        "url": []
+        "institution": "Klingt Gut Festival"
     },
     {
         "date": "2021-06-25T00:00:00",
@@ -145,7 +130,7 @@
         "employer": "Sonic Arts Ensemble",
         "location": "Columbus, OH",
         "title": "Sonic Arts Ensemble - Music And/as Process Presentation",
-        "institution": null,
+        "institution": "Music And/as Process",
         "url": "https://drive.google.com/file/d/1BFv9dqd7vDJaVHEGA-VpuQoua2e2CSzC/view"
     },
     {
@@ -156,7 +141,9 @@
         "location": "New York City, NY",
         "broadcast": 1,
         "institution": "Wexner Center for the Arts",
-        "url": "https://www.youtube.com/watch?v=74wdsiK_jUU"
+        "videos": [
+          "https://www.youtube.com/watch?v=74wdsiK_jUU"
+        ]
     },
     {
         "date": "2022-05-20T00:00:00",
@@ -166,7 +153,9 @@
         "location": "Bariloche, ARG",
         "broadcast": -1,
         "institution": "Wexner Center for the Arts",
-        "url": "https://www.youtube.com/watch?v=vnEYecQjJH4"
+        "videos": [
+          "https://www.youtube.com/watch?v=vnEYecQjJH4"
+        ]
     },
     {
         "date": "2022-09-29T00:00:00",
@@ -176,6 +165,6 @@
         "location": "Berlin, DE",
         "broadcast": -2,
         "institution": "Live Performance",
-        "url": "https://www.horsebarberlin.com/"
+        "url": "https://www.horsebarberlin.com"
     }
 ]
