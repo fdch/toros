@@ -10,3 +10,4 @@ __pycache__/
 private/
 frontend/database.rules.json
 frontend/firebase-debug.log
+frontend/.firebase/toros-duo/functions/.env
